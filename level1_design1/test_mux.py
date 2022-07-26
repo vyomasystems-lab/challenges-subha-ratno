@@ -40,7 +40,7 @@ async def test_mux_basic1(dut):
     In27 = 2;
     In28 = 3;
     In29 = 3;
-    In30 = 0;
+    In30 = 2;
 
     #input driving
     dut.sel.value = Sel;
@@ -78,6 +78,7 @@ async def test_mux_basic1(dut):
 
     await Timer(2, units='ns')
     
+    dut._log.info(f'sel={Sel:02}  exp={In5:05} DUT={int(dut.out.value):05}')
     assert dut.out.value == In5, "MUX result is incorrect: for select = {sel}, output != {out}, expected value={EXP}".format(
             sel=int(dut.sel.value), out=int(dut.out.value), EXP=In5)
 
@@ -86,7 +87,7 @@ async def test_mux_basic2(dut):
     """Test for mux2"""
 
     #cocotb.log.info('##### CTB: Develop your test here ########')
-    Sel = 12;
+    Sel = 30;
     In0 = 1;
     In1 = 3;
     In2 = 2;
@@ -117,7 +118,7 @@ async def test_mux_basic2(dut):
     In27 = 2;
     In28 = 3;
     In29 = 3;
-    In30 = 0;
+    In30 = 2;
 
     #input driving
     dut.sel.value = Sel;
@@ -155,8 +156,9 @@ async def test_mux_basic2(dut):
 
     await Timer(2, units='ns')
     
-    assert dut.out.value == In12, "MUX result is incorrect: for select = {sel}, output != {out}, expected value={EXP}".format(
-            sel=int(dut.sel.value), out=int(dut.out.value), EXP=In12)
+    dut._log.info(f'sel={Sel:02}  exp={In30:05} DUT={int(dut.out.value):05}')
+    assert dut.out.value == In30, "MUX result is incorrect: for select = {sel}, output != {out}, expected value={EXP}".format(
+            sel=int(dut.sel.value), out=int(dut.out.value), EXP=In30)
 
 # @cocotb.test()
 # async def test_mux_randomised(dut):
