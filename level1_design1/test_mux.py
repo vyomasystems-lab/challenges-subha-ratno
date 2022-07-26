@@ -41,7 +41,6 @@ async def test_mux(dut):
     In28 = 3;
     In29 = 3;
     In30 = 0;
-    In31 = 3;
 
     #input driving
     dut.sel.value = Sel;
@@ -76,9 +75,6 @@ async def test_mux(dut):
     dut.inp28.value = In28;
     dut.inp29.value = In29;
     dut.inp30.value = In30;
-    dut.inp31.value = In31;
-
-    #dut.out.value = Out;
 
     await Timer(2, units='ns')
     
